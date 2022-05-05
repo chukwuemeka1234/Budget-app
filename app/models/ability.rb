@@ -14,8 +14,8 @@ class Ability
       can :destroy, Category do |category|
         category.author == user
       end
-      can :destroy, Expense do |expenses|
-        expenses.author == user
+      can :destroy, Expense do |expense|
+        expense.author == user
       end
     end
     #
