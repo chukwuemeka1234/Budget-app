@@ -1,7 +1,13 @@
-<h2>Sign up</h2>
+<h2 >Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, class: "text-gray-400 block border border-grey-light w-full p-2 rounded mb-4" %>
+  </div>
+
 
   <div class="field">
     <%= f.label :email %><br />

@@ -5,21 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-  <body class="bg-slate-300">
-    <main class="flex flex-col w-full">
-      <%=render 'shared/nav' %>
-        <% flash.each do |type, msg| %>
-        <div class="text-red-500 text-xs md:text-sm font-light">
-          <%= msg %>
-        <div>
-      <% end %>
+  <body class='flex flex-col items-center bg-gray-300'>
       <%= yield %>
-    </main>
   </body>
 </html>
