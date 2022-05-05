@@ -1,2 +1,46 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<nav>
+  <ul>
+    <li>
+      <a href="/"><i class="fa fa-arrow-left"></a>
+    </li>
+    <li>
+      <h2 class="text-3x1 font-medium">Categories</h2>
+    </li>
+    <li>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    </li>
+  </ul>
+</nav>
+<%= render 'layouts/errornotice' %>
+<% if @categories.any?%>
+  <% @categories.each do |category|%>
+    <div>
+      <div>
+        <p> <%=image_tag "#{category.icon}", class:"w-28 rounded img-thumbnail"%></p>
+          <ul>
+            <li>
+              <p><%= link_to category.name, category_path(category), class:"" %></p>
+            </li>
+            <li>
+              <p><%= category.created_at.strftime("%d-%b-%Y")%></p>
+            </li>
+          </ul>
+      </div>
+      <ul class="mr-4 flex flex-col gap-y-4">
+        <li>
+          <p> $<%= category.expenses.sum(:amount)%></p>
+        </li>
+        <li>
+          <%if can? :destroy, category %>
+            <%=button_to "Delete", category_path(cathegory.id), method: :delete, class:"text-center p-2 rounded bg-red-600 text-white hover:bg-green-dark focus:outline-none"%>
+            <%end%>
+        </li>
+      </ul>
+    </div>
+  <%end%>
+<%else%>
+  <p class="text-2xl text-center mt-8">No Category. Add your Category</p>
+<%end%>
+<div class="flex items-center justify-center  inset-x-0 bottom-0 h-20 text-center w-full">
+  <%= link_to "Add Category", new_category_path, class: "mt-20 mb-12 px-24  bg-green-600 text-xl font-light py-3 text-center text-white hover:bg-green-dark focus:outline-none"%>
+</div>
