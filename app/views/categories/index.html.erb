@@ -32,7 +32,7 @@
         </li>
         <li>
           <%if can? :destroy, category %>
-            <%=button_to "Delete", category_path(cathegory.id), method: :delete, class:"text-center p-2 rounded bg-red-600 text-white hover:bg-green-dark focus:outline-none"%>
+            <%=button_to "Delete", category_path(category.id), method: :delete, class:"text-center p-2 rounded bg-red-600 text-white hover:bg-green-dark focus:outline-none"%>
             <%end%>
         </li>
       </ul>

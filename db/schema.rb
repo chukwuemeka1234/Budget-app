@@ -23,6 +23,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_05_102045) do
     t.index ["author_id"], name: "index_categories_on_author_id"
   end
 
+  create_table "expense_categories", force: :cascade do |t|
+    t.bigint "expense_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_expense_categories_on_category_id"
+    t.index ["expense_id"], name: "index_expense_categories_on_expense_id"
+  end
+
   create_table "expenses", force: :cascade do |t|
     t.string "name"
     t.float "amount"
@@ -30,15 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_05_102045) do
     t.datetime "updated_at", null: false
     t.integer "author_id"
     t.index ["author_id"], name: "index_expenses_on_author_id"
-  end
-
-  create_table "expenses_categories", force: :cascade do |t|
-    t.bigint "expense_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_expenses_categories_on_category_id"
-    t.index ["expense_id"], name: "index_expenses_categories_on_expense_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_05_102045) do
   end
 
   add_foreign_key "categories", "users", column: "author_id"
+  add_foreign_key "expense_categories", "categories"
+  add_foreign_key "expense_categories", "expenses"
   add_foreign_key "expenses", "users", column: "author_id"
-  add_foreign_key "expenses_categories", "categories"
-  add_foreign_key "expenses_categories", "expenses"
 end
