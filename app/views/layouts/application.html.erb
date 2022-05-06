@@ -13,6 +13,10 @@
   </head>
 
   <body class='flex flex-col items-center bg-gray-300'>
-      <%= yield %>
+    <% flash.each do |type, msg| -%>
+      <p><%= msg %></p>
+    <% end -%>
+
+      <%= yield %> 
   </body>
 </html>
