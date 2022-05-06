@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   def index
     @categories = Category.where(author_id: current_user.id)
   end
@@ -28,10 +27,10 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     authorize! :destroy, @category
     flash[:notice] = if @category.destroy
-      'Category removed successfully'
-    else
-      'Something went wrong'
-    end
+                       'Category removed successfully'
+                     else
+                       'Something went wrong'
+                     end
     redirect_to root_path
   end
 
@@ -42,6 +41,8 @@ class CategoriesController < ApplicationController
   end
 
   def icons
-    { 'Grocery' => 'icon0.png', 'Shopping' => 'icon1.png', 'Transportation' => 'icon2.png', 'Education' => 'icon3.png', 'Bills' => 'icon4.png', 'Insurance' => 'icon5.png', 'Travel' => 'icon6.png', 'Home' => 'icon7.png', 'Technology' => 'icon8.png', 'Electricity' => 'icon9.png' }
+    { 'Grocery' => 'icon0.png', 'Shopping' => 'icon1.png', 'Transportation' => 'icon2.png', 'Education' => 'icon3.png',
+      'Bills' => 'icon4.png', 'Insurance' => 'icon5.png', 'Travel' => 'icon6.png', 'Home' => 'icon7.png',
+      'Technology' => 'icon8.png', 'Electricity' => 'icon9.png' }
   end
 end
