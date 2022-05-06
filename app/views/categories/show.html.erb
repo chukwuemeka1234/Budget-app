@@ -12,7 +12,7 @@
   </ul>
 </nav>
 <%=render 'layouts/errornotice'%>
-<div class="p-2 mt-12 bg-white flex w-11/12 justify-between items-center">
+<div class="p-2 mt-12 rounded bg-white flex w-11/12 justify-between items-center">
   <div class="flex gap-x-12">
     <ul class="p-2 m-2">
       <li class='mt-4'>
@@ -26,14 +26,14 @@
     </li>
     <li>
       <%if can? :destroy, @category %>
-        <%=link_to "Delete", category_path(@category.id), method: :delete, class:"text-center p-2 rounded bg-red-600 text-white hover:bg-green-dark focus:outline-none"%>
+        <%=link_to "Delete", category_path(@category.id), method: :delete, class:"text-center p-2 rounded bg-blue-600 text-white hover:bg-green-dark focus:outline-none"%>
       <%end%>
     </li>
   </ul>
 </div>
 <% if @category.expenses.any? %>
   <% @category.expenses.order(created_at:'DESC').each do |fd|%>
-    <div class="p-2 m-3 bg-white flex w-11/12 justify-between">
+    <div class="p-2 m-3 rounded bg-white flex w-11/12 justify-between">
       <div class="flex gap-x-12">
         <p> <%=image_tag @category.icon ,class:"w-28 rounded img-thumbnail"%></p>
         <ul class="w-6/12">
@@ -51,7 +51,7 @@
         </li>
         <li>
           <%if can? :destroy, fd%>
-            <%=button_to "Delete", category_expense_path(category_id: @category.id, id: fd.id), method: :delete, class:"text-center p-2 rounded bg-red-600 text-white hover:bg-green-dark focus:outline-none"%>
+            <%=button_to "Delete", category_expense_path(category_id: @category.id, id: fd.id), method: :delete, class:"text-center p-2 rounded bg-blue-600 text-white hover:bg-green-dark focus:outline-none"%>
           <%end%>
         </li>
       </ul>
