@@ -7,7 +7,7 @@
 
 ## Live Version
 
-[ Video Documentation](https://www.loom.com/share/0523a75cbe7b42cca1e907c3b9d09b56)
+[ Video Documentation](https://www.loom.com/share/bd5acbd878484748a2d84872d8b468dc)
 
 [Live Demo](https://salty-retreat-04794.herokuapp.com/)
 
