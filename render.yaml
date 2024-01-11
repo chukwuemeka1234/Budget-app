@@ -1,12 +1,12 @@
 databases:
-  - name: Budgetapp1
-    databaseName: Budgetapp1
-    user: Budgetapp1
+  - name: Budget_app_1
+    databaseName: Budget_app_1_production
+    user: Budget_app_1
     plan: free
 
 services:
   - type: web
-    name: Budgetapp1
+    name: Budget_app_1
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
